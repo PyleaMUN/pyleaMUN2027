@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyleaMUN 2027</title>
+    <meta name="description" content="PyleaMUN 2027 - The Universal Right to Truth. Provisional Dates: 4-6/2/2027.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Blending background with the logo's cream/off-white tone */
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            background-color: #fcfbf9; 
+            color: #001f3f;
+        }
+        
+        .navbar-custom { 
+            background-color: #fcfbf9; 
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('logo.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            min-height: 85vh; /* Increased height for prominence */
+            margin-top: 56px;
+        }
+        
+        /* Overlay */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(252, 251, 249, 0.85); /* Slightly higher opacity to make text pop */
+        }
+
+        .hero-content { 
+            position: relative; 
+            z-index: 1; 
+            max-width: 90%; 
+            padding: 2rem;
+        }
+
+        /* Typography Styles */
+        .brand-title {
+            color: #008080; /* Teal */
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .main-theme-title { 
+            font-weight: 900;
+            color: #001f3f; 
+            font-size: 4rem; /* Ultra Prominent */
+            line-height: 1.1;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        .theme-subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #333;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #b8860b;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .date-highlight { 
+            display: inline-block; 
+            color: #b8860b; /* Golden tone */
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            padding: 0.5em 1em; 
+            border: 2px solid #b8860b;
+            border-radius: 0.5em; 
+            margin-bottom: 2rem; 
+            background-color: rgba(255,255,255,0.9);
+        }
+
+        /* Flashing Animation */
+        @keyframes flash-effect {
+            0% { opacity: 1; color: #d63384; transform: scale(1); }
+            50% { opacity: 0.6; color: #dc3545; transform: scale(1.02); }
+            100% { opacity: 1; color: #d63384; transform: scale(1); }
+        }
+
+        .flashing-notice {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            animation: flash-effect 1.2s infinite ease-in-out;
+            margin-top: 1rem;
+        }
+
+        /* Countdown Section */
+        #countdown-section {
+            background-color: transparent;
+            padding-top: 2rem;
+        }
+        #countdown div {
+            min-width: 90px;
+            padding: 0.5em;
+            text-align: center;
+        }
+        #countdown span { 
+            display: block; 
+            font-size: 2.5rem; 
+            color: #008080; /* Teal to match brand */
+            font-weight: bold;
+        }
+        #countdown .small { 
+            font-size: 1rem; 
+            color: #555; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Committee Cards */
+        .section-title { 
+            margin: 3rem 0 2rem; 
+            text-align: center; 
+            color: #001f3f; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .committee-card { 
+            border: none;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s; 
+            height: 100%;
+            border-top: 4px solid #008080; /* Teal accent */
+        }
+        .committee-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .card-body { padding: 2rem; }
+        .card-title { 
+            color: #008080; /* Teal */
+            font-weight: 700; 
+            margin-bottom: 1rem;
+        }
+        .card-text {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer { 
+            background: #001f3f; 
+            color: #fcfbf9; 
+            padding: 2rem 0; 
+            margin-top: 4rem;
+        }
+        
+        a.nav-link { cursor: default; }
+        
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .hero { min-height: 60vh; }
+            .main-theme-title { font-size: 2.5rem; }
+            .theme-subtitle { font-size: 1.2rem; }
+            .brand-title { font-size: 2rem; }
+            .flashing-notice { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <div class="container">
+            <span class="navbar-brand d-flex align-items-center" style="color: #008080; font-weight: bold;">
+                <img src="logo.png" alt="PyleaMUN Logo" class="me-2" style="height:40px;">
+                PyleaMUN
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><span class="nav-link"></span></li>
+                    <li class="nav-item"><span class="nav-link"></span></li>
+                    <li class="nav-item"><span class="nav-link"></span></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="brand-title">PyleaMUN 2027</div>
+            
+            <h1 class="main-theme-title">The Universal Right to Truth</h1>
+            
+            <div class="theme-subtitle">
+                Establishing International Norms Against State-Sponsored Disinformation
+            </div>
+            
+            <div class="d-block mb-4">
+                <div class="date-highlight">Provisional Dates: 4-6/2/2027</div>
+            </div>
+            
+            <div class="flashing-notice">
+                More information coming soon
+            </div>
+        </div>
+    </header>
+
+    <section id="countdown-section">
+        <div class="container text-center">
+            <h2 class="mb-4 text-secondary" style="font-weight: 300;">Countdown to Conference</h2>
+            <div id="countdown" class="d-flex justify-content-center flex-wrap gap-4">
+                <div><span id="days">--</span><div class="small">Days</div></div>
+                <div><span id="hours">--</span><div class="small">Hours</div></div>
+                <div><span id="minutes">--</span><div class="small">Minutes</div></div>
+                <div><span id="seconds">--</span><div class="small">Seconds</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="text-center">
+            <h2 class="section-title">2027 Agenda & Committees</h2>
+        </div>
+        
+        <div class="row g-4">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">UN General Assembly (UNGA)</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> The Universal Right to Truth: Establishing International Norms Against State-Sponsored Disinformation. 
+                            <br><br>
+                            Addressing the "Post-Truth" era, the Assembly will debate whether access to factual information is a human right and determine how the UN can sanction states that weaponize misinformation against their own citizens or other nations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Committee on Digital Affairs & Sovereignty</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> Drafting the "Digital Geneva Convention": Regulating Tech Giants and Defining Cyber-Sovereignty.
+                            <br><br>
+                            A hybrid committee of States and Tech Representatives attempting to create binding rules for algorithmic transparency, data ownership, and the prevention of digital warfare.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Security Council (UNSC)</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> The Weaponization of Synthetic Media: Addressing the Threat of Deepfakes to Global Security.
+                            <br><br>
+                            Addressing "epistemic threats" and how deepfakes of world leaders could trigger wars, destabilize markets, or incite violence, focusing on how the SC can respond to non-physical threats.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Economic and Social Council (ECOSOC)</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> The "Truth Economy": Mitigating the Impact of Generative AI on Labour Markets and Intellectual Property.
+                            <br><br>
+                            Debating how to protect human jobs from AI displacement and regulating AI-generated content that scrapes human data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">UNESCO</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> Safeguarding History: Combating Digital Revisionism and Preserving Cultural Heritage in the Metaverse.
+                            <br><br>
+                            Ensuring history and culture are not rewritten or gamified inaccurately in VR/AR environments, while addressing AI impact on academic integrity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">UN Environment Programme (UNEP)</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> Combating "Greenwashing" and Climate Disinformation: Enforcing Transparency in Corporate Sustainability Reporting.
+                            <br><br>
+                            Addressing the manipulation of data by corporations or states that use misleading info to appear eco-friendly while continuing to pollute.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">NATO</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> Cognitive Warfare: Countering Hybrid Threats and Disinformation Campaigns Targeting Alliance Unity.
+                            <br><br>
+                            Strategies to defend against adversaries using social media bots and information warfare to erode public trust in democratic institutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">World Health Organisation (WHO)</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> The Impact of Social Media on Youth Health: Addressing Body Dysmorphia and Dangerous Diet Trends.
+                            <br><br>
+                            This committee focuses on the medical and psychological outcomes of social media. It will formulate guidelines to identify early signs of body image disorders.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Human Rights Council (HRC)</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> Safety of Journalists and the Freedom of the Press: Protecting Truth-Tellers in the Era of Digital Authoritarianism.
+                            <br><br>
+                            This committee addresses the protection of journalists as the guardians of factual information. It examines ways to prevent the use of "fake news" laws to silence dissent.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">UN Women</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> Digital Gender-Based Violence: Addressing Non-Consensual Deepfakes and Online Misogyny.
+                            <br><br>
+                            Targeting the rise of AI-generated non-consensual pornography and the use of technology to stalk or harass women.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card committee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Historical Crisis Committee (HCC)</h5>
+                        <p class="card-text">
+                            <strong>Topic:</strong> The Chernobyl Disaster (1986): The Cost of Lies.
+                            <br><br>
+                            This committee serves as the ultimate "Epistemic Security" historical crisis. Delegates must navigate the containment of both radiation and information.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2027 PyleaMUN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Set the date we're counting down to: February 4, 2027
+        const deadline = new Date('February 4, 2027 08:00:00').getTime();
+
+        const timerInterval = setInterval(updateCountdown, 1000);
+
+        function updateCountdown() {
+            const now = Date.now();
+            const t = deadline - now;
+            
+            if (t <= 0) {
+                clearInterval(timerInterval);
+                const countdownSection = document.getElementById('countdown-section');
+                if (countdownSection) {
+                    countdownSection.innerHTML = "<div class='container py-5'><p class='fs-4 text-success'>The Conference has started!</p></div>";
+                }
+                return;
+            }
+
+            const days = Math.floor(t / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((t % (1000 * 60)) / 1000);
+
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (daysEl) daysEl.textContent = days;
+            if (hoursEl) hoursEl.textContent = hours;
+            if (minutesEl) minutesEl.textContent = minutes;
+            if (secondsEl) secondsEl.textContent = seconds;
+        }
+
+        updateCountdown(); 
+    </script>
+</body>
+</html>
