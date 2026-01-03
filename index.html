@@ -34,7 +34,7 @@
             justify-content: center;
             position: relative;
             text-align: center;
-            min-height: 85vh; /* Increased height for prominence */
+            min-height: 85vh; 
             margin-top: 56px;
         }
         
@@ -43,7 +43,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background-color: rgba(252, 251, 249, 0.85); /* Slightly higher opacity to make text pop */
+            background-color: rgba(252, 251, 249, 0.85); 
         }
 
         .hero-content { 
@@ -65,7 +65,7 @@
         .main-theme-title { 
             font-weight: 900;
             color: #001f3f; 
-            font-size: 4rem; /* Ultra Prominent */
+            font-size: 4rem; 
             line-height: 1.1;
             text-transform: uppercase;
             text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
@@ -94,6 +94,39 @@
             background-color: rgba(255,255,255,0.9);
         }
 
+        /* Action Buttons in Hero */
+        .hero-btn {
+            padding: 0.8rem 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-teal {
+            background-color: #008080;
+            color: white;
+            border: 2px solid #008080;
+        }
+        .btn-teal:hover {
+            background-color: #006666;
+            border-color: #006666;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .btn-gold {
+            background-color: #fff;
+            color: #b8860b;
+            border: 2px solid #b8860b;
+        }
+        .btn-gold:hover {
+            background-color: #b8860b;
+            color: white;
+            transform: translateY(-2px);
+        }
+
         /* Flashing Animation */
         @keyframes flash-effect {
             0% { opacity: 1; color: #d63384; transform: scale(1); }
@@ -102,11 +135,11 @@
         }
 
         .flashing-notice {
-            font-size: 2.5rem;
+            font-size: 1.5rem; 
             font-weight: 900;
             text-transform: uppercase;
             animation: flash-effect 1.2s infinite ease-in-out;
-            margin-top: 1rem;
+            margin-top: 2rem;
         }
 
         /* Countdown Section */
@@ -122,7 +155,7 @@
         #countdown span { 
             display: block; 
             font-size: 2.5rem; 
-            color: #008080; /* Teal to match brand */
+            color: #008080; 
             font-weight: bold;
         }
         #countdown .small { 
@@ -175,15 +208,14 @@
             margin-top: 4rem;
         }
         
-        a.nav-link { cursor: default; }
-        
         /* Mobile adjustments */
         @media (max-width: 768px) {
             .hero { min-height: 60vh; }
             .main-theme-title { font-size: 2.5rem; }
             .theme-subtitle { font-size: 1.2rem; }
             .brand-title { font-size: 2rem; }
-            .flashing-notice { font-size: 1.5rem; }
+            .flashing-notice { font-size: 1.2rem; }
+            .hero-btn { width: 100%; display: block; margin: 0.5rem 0; }
         }
     </style>
 </head>
@@ -200,9 +232,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><span class="nav-link"></span></li>
-                    <li class="nav-item"><span class="nav-link"></span></li>
-                    <li class="nav-item"><span class="nav-link"></span></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://pyleamun.github.io/countries2027/" target="_blank">Country Availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://forms.gle/MDZL5CmGniXBvH1R9" target="_blank">School Registration 2027</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://forms.gle/nLaawdo5YffBxdAv7" target="_blank">Student Officer Application 2027</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -220,6 +258,18 @@
             
             <div class="d-block mb-4">
                 <div class="date-highlight">Provisional Dates: 4-6/2/2027</div>
+            </div>
+
+            <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+                <a href="https://forms.gle/MDZL5CmGniXBvH1R9" target="_blank" class="btn hero-btn btn-teal">
+                    <i class="fas fa-school me-2"></i> School Registration 2027
+                </a>
+                <a href="https://forms.gle/nLaawdo5YffBxdAv7" target="_blank" class="btn hero-btn btn-teal">
+                    <i class="fas fa-user-tie me-2"></i> Student Officer Application 2027
+                </a>
+                <a href="https://pyleamun.github.io/countries2027/" target="_blank" class="btn hero-btn btn-gold">
+                    <i class="fas fa-globe me-2"></i> Country Availability
+                </a>
             </div>
             
             <div class="flashing-notice">
