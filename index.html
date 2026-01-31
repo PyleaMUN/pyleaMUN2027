@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Blending background with the logo's cream/off-white tone */
         body { 
             font-family: 'Roboto', sans-serif; 
             margin: 0; 
@@ -23,7 +22,6 @@
             background-color: #fcfbf9; 
         }
 
-        /* Hero Section */
         .hero {
             background-image: url('logo.png');
             background-repeat: no-repeat;
@@ -38,7 +36,6 @@
             margin-top: 56px;
         }
         
-        /* Overlay */
         .hero::before {
             content: "";
             position: absolute;
@@ -53,9 +50,8 @@
             padding: 2rem;
         }
 
-        /* Typography Styles */
         .brand-title {
-            color: #008080; /* Teal */
+            color: #008080; 
             font-weight: 900;
             letter-spacing: 2px;
             font-size: 3rem;
@@ -84,7 +80,7 @@
 
         .date-highlight { 
             display: inline-block; 
-            color: #b8860b; /* Golden tone */
+            color: #b8860b; 
             font-size: 1.5rem; 
             font-weight: 700; 
             padding: 0.5em 1em; 
@@ -94,7 +90,6 @@
             background-color: rgba(255,255,255,0.9);
         }
 
-        /* Action Buttons in Hero */
         .hero-btn {
             padding: 0.8rem 1.5rem;
             font-weight: 700;
@@ -104,6 +99,7 @@
             border-radius: 50px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
         }
         .btn-teal {
             background-color: #008080;
@@ -112,7 +108,6 @@
         }
         .btn-teal:hover {
             background-color: #006666;
-            border-color: #006666;
             color: white;
             transform: translateY(-2px);
         }
@@ -127,7 +122,6 @@
             transform: translateY(-2px);
         }
 
-        /* Flashing Animation */
         @keyframes flash-effect {
             0% { opacity: 1; color: #d63384; transform: scale(1); }
             50% { opacity: 0.6; color: #dc3545; transform: scale(1.02); }
@@ -142,79 +136,59 @@
             margin-top: 2rem;
         }
 
-        /* Countdown Section */
-        #countdown-section {
-            background-color: transparent;
-            padding-top: 2rem;
-        }
-        #countdown div {
-            min-width: 90px;
-            padding: 0.5em;
-            text-align: center;
-        }
-        #countdown span { 
-            display: block; 
-            font-size: 2.5rem; 
-            color: #008080; 
-            font-weight: bold;
-        }
-        #countdown .small { 
-            font-size: 1rem; 
-            color: #555; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        #countdown-section { padding-top: 2rem; }
+        #countdown div { min-width: 90px; padding: 0.5em; text-align: center; }
+        #countdown span { display: block; font-size: 2.5rem; color: #008080; font-weight: bold; }
+        #countdown .small { font-size: 1rem; color: #555; text-transform: uppercase; }
 
-        /* Committee Cards */
         .section-title { 
             margin: 3rem 0 2rem; 
             text-align: center; 
             color: #001f3f; 
             text-transform: uppercase;
-            letter-spacing: 1px;
             font-weight: 700;
         }
 
-        .committee-card { 
+        .accordion-item {
             border: none;
+            margin-bottom: 0.75rem;
+            background-color: transparent;
+        }
+        .accordion-button {
             background-color: #fff;
+            color: #001f3f;
+            font-weight: 700;
+            border-left: 5px solid #008080;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s; 
-            height: 100%;
-            border-top: 4px solid #008080; /* Teal accent */
+            border-radius: 8px !important;
         }
-        .committee-card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        .accordion-button:not(.collapsed) {
+            background-color: #eef7f7;
+            color: #008080;
+            box-shadow: none;
         }
-        .card-body { padding: 2rem; }
-        .card-title { 
-            color: #008080; /* Teal */
-            font-weight: 700; 
-            margin-bottom: 1rem;
-        }
-        .card-text {
-            color: #444;
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .accordion-body {
+            background-color: #fff;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 2rem;
             text-align: justify;
         }
-
-        /* Footer */
-        footer { 
-            background: #001f3f; 
-            color: #fcfbf9; 
-            padding: 2rem 0; 
-            margin-top: 4rem;
+        .topic-label {
+            color: #008080;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
         }
+
+        footer { background: #001f3f; color: #fcfbf9; padding: 2rem 0; margin-top: 4rem; }
         
-        /* Mobile adjustments */
         @media (max-width: 768px) {
             .hero { min-height: 60vh; }
             .main-theme-title { font-size: 2.5rem; }
             .theme-subtitle { font-size: 1.2rem; }
             .brand-title { font-size: 2rem; }
-            .flashing-notice { font-size: 1.2rem; }
             .hero-btn { width: 100%; display: block; margin: 0.5rem 0; }
         }
     </style>
@@ -232,15 +206,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://pyleamun.github.io/countries2027/" target="_blank">Country Availability</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://forms.gle/MDZL5CmGniXBvH1R9" target="_blank">School Registration 2027</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://forms.gle/nLaawdo5YffBxdAv7" target="_blank">Student Officer Application 2027</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="https://pyleamun.github.io/countries2027/" target="_blank">Country Availability</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://forms.gle/MDZL5CmGniXBvH1R9" target="_blank">School Registration 2027</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://forms.gle/nLaawdo5YffBxdAv7" target="_blank">Student Officer Application 2027</a></li>
                 </ul>
             </div>
         </div>
@@ -249,31 +217,27 @@
     <header class="hero">
         <div class="hero-content">
             <div class="brand-title">PyleaMUN 2027</div>
-            
             <h1 class="main-theme-title">The Universal Right to Truth</h1>
-            
-            <div class="theme-subtitle">
-                Establishing International Norms Against State-Sponsored Disinformation
-            </div>
-            
+            <div class="theme-subtitle">Establishing International Norms Against State-Sponsored Disinformation</div>
             <div class="d-block mb-4">
-                <div class="date-highlight">Provisional Dates: 11-14/02/2027</div>
+                <div class="date-highlight">Provisional Dates: 11-14/2/2027</div>
             </div>
-
             <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
-                <a href="https://forms.gle/MDZL5CmGniXBvH1R9" target="_blank" class="btn hero-btn btn-teal">
-                    <i class="fas fa-school me-2"></i> School Registration 2027
-                </a>
-                <a href="https://forms.gle/nLaawdo5YffBxdAv7" target="_blank" class="btn hero-btn btn-teal">
-                    <i class="fas fa-user-tie me-2"></i> Student Officer Application 2027
-                </a>
-                <a href="https://pyleamun.github.io/countries2027/" target="_blank" class="btn hero-btn btn-gold">
-                    <i class="fas fa-globe me-2"></i> Country Availability
-                </a>
+                <a href="https://forms.gle/MDZL5CmGniXBvH1R9" target="_blank" class="btn hero-btn btn-teal"><i class="fas fa-school me-2"></i> School Registration 2027</a>
+                <a href="https://forms.gle/nLaawdo5YffBxdAv7" target="_blank" class="btn hero-btn btn-teal"><i class="fas fa-user-tie me-2"></i> Student Officer Application 2027</a>
+                <a href="https://pyleamun.github.io/countries2027/" target="_blank" class="btn hero-btn btn-gold"><i class="fas fa-globe me-2"></i> Country Availability</a>
             </div>
             
             <div class="flashing-notice">
                 More information coming soon
+            </div>
+
+            <div style="font-size: 1.5rem; font-weight: 900; color: #28a745; margin-top: 0.5rem;">
+    PyleaMUN remains true to its "No Fees" policy
+</div>
+
+            <div style="font-size: 1.1rem; font-weight: 400; color: #000; margin-top: 1rem; font-style: italic;">
+                <strong>Page will be updated regularly and will be fully populated by the end of November 2026</strong>
             </div>
         </div>
     </header>
@@ -292,150 +256,259 @@
 
     <section class="container py-5">
         <div class="text-center">
-            <h2 class="section-title">2027 Agenda & Committees</h2>
+            <h2 class="section-title">2027 Provisional Agenda & Committees</h2>
         </div>
         
-        <div class="row g-4">
-            
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">UN General Assembly (UNGA)</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> The Universal Right to Truth: Establishing International Norms Against State-Sponsored Disinformation. 
-                            <br><br>
-                            Addressing the "Post-Truth" era, the Assembly will debate whether access to factual information is a human right and determine how the UN can sanction states that weaponize misinformation against their own citizens or other nations.
-                        </p>
+        <div class="accordion" id="committeeAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc1">
+                        Security Council 1 (UNSC)
+                    </button>
+                </h2>
+                <div id="sc1" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: The Weaponization of Synthetic Media: Addressing the Threat of Deepfakes to Global Security.</span>
+                        Addressing "epistemic threats" and how deepfakes of world leaders could trigger wars, destabilize markets, or incite violence, focusing on how the SC can respond to non-physical threats.
+                        <hr>
+                        <span class="topic-label">Topic 2: The Security Implications of Autonomous Weapon Systems and AI-Driven Decision Making.</span>
+                        Examining the threat of "flash wars" caused by AI algorithms and establishing international protocols to maintain human control over lethal autonomous systems.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Committee on Digital Affairs & Sovereignty</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> Drafting the "Digital Geneva Convention": Regulating Tech Giants and Defining Cyber-Sovereignty.
-                            <br><br>
-                            A hybrid committee of States and Tech Representatives attempting to create binding rules for algorithmic transparency, data ownership, and the prevention of digital warfare.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc2">
+                        Security Council 2 (UNSC)
+                    </button>
+                </h2>
+                <div id="sc2" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: The Regulation of Private Military and Security Companies (PMSCs) in Digital Conflict Zones.</span>
+                        Debating the legal accountability of private contractors hired for information operations and the use of digital mercenaries to interfere in sovereign elections.
+                        <hr>
+                        <span class="topic-label">Topic 2: Countering Cyber-Terrorism: Protecting Global Financial and Civil Infrastructure from State-Linked Hacktivism.</span>
+                        Addressing the rise of non-state actors using high-level cyber tools to cripple power grids and banking systems, and determining how the Council can authorize responses to digital aggression.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Security Council (UNSC)</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> The Weaponization of Synthetic Media: Addressing the Threat of Deepfakes to Global Security.
-                            <br><br>
-                            Addressing "epistemic threats" and how deepfakes of world leaders could trigger wars, destabilize markets, or incite violence, focusing on how the SC can respond to non-physical threats.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#digitalAffairs">
+                        Committee on Digital Affairs & Sovereignty
+                    </button>
+                </h2>
+                <div id="digitalAffairs" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: Drafting the "Digital Geneva Convention": Regulating Tech Giants and Defining Cyber-Sovereignty.</span>
+                        A hybrid committee of States and Tech Representatives (e.g., Meta, TikTok) attempting to create binding rules for algorithmic transparency, data ownership, and the prevention of digital warfare.
+                        <hr>
+                        <span class="topic-label">Topic 2: The Governance of Satellite Internet Constellations and Space-Based Data Privacy.</span>
+                        Addressing the environmental and security risks of private satellite networks and ensuring that orbital internet providers respect the digital sovereignty of the nations they cover.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Economic and Social Council (ECOSOC)</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> The "Truth Economy": Mitigating the Impact of Generative AI on Labour Markets and Intellectual Property.
-                            <br><br>
-                            Debating how to protect human jobs from AI displacement and regulating AI-generated content that scrapes human data.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ecosoc">
+                        Economic and Social Council (ECOSOC)
+                    </button>
+                </h2>
+                <div id="ecosoc" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: The "Truth Economy": Mitigating the Impact of Generative AI on Labour Markets and Intellectual Property.</span>
+                        Debating how to protect human jobs from AI displacement and regulating AI-generated content that scrapes human data.
+                        <hr>
+                        <span class="topic-label">Topic 2: The Rise of Decentralized Finance (DeFi) and its Threat to Global Financial Stability.</span>
+                        Investigating the risks of unregulated crypto-assets and shadow banking systems that bypass traditional oversight and threaten the economic security of developing nations.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">UNESCO</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> Safeguarding History: Combating Digital Revisionism and Preserving Cultural Heritage in the Metaverse.
-                            <br><br>
-                            Ensuring history and culture are not rewritten or gamified inaccurately in VR/AR environments, while addressing AI impact on academic integrity.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#unesco">
+                        UNESCO
+                    </button>
+                </h2>
+                <div id="unesco" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: Safeguarding History: Combating Digital Revisionism and Preserving Cultural Heritage in the Metaverse.</span>
+                        Ensuring history and culture are not rewritten or gamified inaccurately in VR/AR environments, while addressing AI impact on academic integrity.
+                        <hr>
+                        <span class="topic-label">Topic 2: Protection of Indigenous Languages and Oral Histories from AI Data Harvesting.</span>
+                        Ensuring that large language models do not exploit indigenous knowledge and developing frameworks to preserve endangered languages in the digital sphere.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">UN Environment Programme (UNEP)</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> Combating "Greenwashing" and Climate Disinformation: Enforcing Transparency in Corporate Sustainability Reporting.
-                            <br><br>
-                            Addressing the manipulation of data by corporations or states that use misleading info to appear eco-friendly while continuing to pollute.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#unep">
+                        UN Environment Programme (UNEP)
+                    </button>
+                </h2>
+                <div id="unep" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: Combating "Greenwashing" and Climate Disinformation: Enforcing Transparency in Corporate Sustainability Reporting.</span>
+                        Addressing the manipulation of data by corporations or states that use misleading info to appear eco-friendly while continuing to pollute.
+                        <hr>
+                        <span class="topic-label">Topic 2: The Ecological Cost of the Digital Frontier: Regulating the Energy Consumption of AI and Crypto-Mining.</span>
+                        Addressing the massive carbon footprint of data centers and formulating international standards for sustainable digital infrastructure.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">NATO</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> Cognitive Warfare: Countering Hybrid Threats and Disinformation Campaigns Targeting Alliance Unity.
-                            <br><br>
-                            Strategies to defend against adversaries using social media bots and information warfare to erode public trust in democratic institutions.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#who">
+                        World Health Organisation (WHO)
+                    </button>
+                </h2>
+                <div id="who" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: The Impact of Social Media on Youth Health: Addressing Body Dysmorphia and Dangerous Diet Trends.</span>
+                        This committee focuses on the medical and psychological outcomes of social media. It will formulate guidelines for schools, parents, and healthcare providers to identify early signs of body image disorders and combat the spread of harmful diet fads.
+                        <hr>
+                        <span class="topic-label">Topic 2: Combating Medical Populism and the Global Spread of Anti-Science Misinformation.</span>
+                        Formulating a unified response to the erosion of public trust in healthcare providers and the impact of health-related "fake news" on pandemic preparedness.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">World Health Organisation (WHO)</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> The Impact of Social Media on Youth Health: Addressing Body Dysmorphia and Dangerous Diet Trends.
-                            <br><br>
-                            This committee focuses on the medical and psychological outcomes of social media. It will formulate guidelines to identify early signs of body image disorders.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hrc">
+                        Human Rights Council (HRC)
+                    </button>
+                </h2>
+                <div id="hrc" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: Safety of Journalists and the Freedom of the Press: Protecting Truth-Tellers in the Era of Digital Authoritarianism.</span>
+                        This committee addresses the protection of journalists as the guardians of factual information. It examines ways to prevent the use of "fake news" laws to silence dissent, combat internet shutdowns, and ensure physical safety for reporters in conflict zones.
+                        <hr>
+                        <span class="topic-label">Topic 2: The Right to be Forgotten: Balancing Privacy with the Public’s Right to Historical Truth.</span>
+                        Debating the human right to erase one's digital past versus the importance of maintaining an accurate and transparent historical record.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Human Rights Council (HRC)</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> Safety of Journalists and the Freedom of the Press: Protecting Truth-Tellers in the Era of Digital Authoritarianism.
-                            <br><br>
-                            This committee addresses the protection of journalists as the guardians of factual information. It examines ways to prevent the use of "fake news" laws to silence dissent.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#unWomen">
+                        UN Women
+                    </button>
+                </h2>
+                <div id="unWomen" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: Digital Gender-Based Violence: Addressing Non-Consensual Deepfakes and Online Misogyny.</span>
+                        Targeting the rise of AI-generated non-consensual pornography and the use of technology to stalk or harass women.
+                        <hr>
+                        <span class="topic-label">Topic 2: The Gendered Impact of AI Recruitment Bias and Digital Financial Exclusion.</span>
+                        Examining how automated hiring systems and financial algorithms reinforce gender discrimination and creating guidelines for ethical AI in the workforce.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">UN Women</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> Digital Gender-Based Violence: Addressing Non-Consensual Deepfakes and Online Misogyny.
-                            <br><br>
-                            Targeting the rise of AI-generated non-consensual pornography and the use of technology to stalk or harass women.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sochum">
+                        Social, Humanitarian & Cultural Committee (SOCHUM)
+                    </button>
+                </h2>
+                <div id="sochum" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: The Ethics of Digital Identity: Addressing the Human Rights of Stateless Persons in the Virtual World.</span>
+                        This committee examines the impact of biometric identification and digital citizenship on refugees and stateless populations, ensuring that technology serves as a tool for inclusion rather than surveillance.
+                        <hr>
+                        <span class="topic-label">Topic 2: Digital Colonialism and the Protection of Indigenous Knowledge in the AI Era.</span>
+                        Debating the ethics of mass-scraping cultural data for AI training without consent and formulating rights-based frameworks for the social and cultural protection of indigenous communities.
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card committee-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Historical Crisis Committee (HCC)</h5>
-                        <p class="card-text">
-                            <strong>Topic:</strong> The Chernobyl Disaster (1986): The Cost of Lies.
-                            <br><br>
-                            This committee serves as the ultimate "Epistemic Security" historical crisis. Delegates must navigate the containment of both radiation and information.
-                        </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#unodc">
+                        UN Office on Drugs and Crime (UNODC)
+                    </button>
+                </h2>
+                <div id="unodc" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: Dark-Web Marketplaces: Combatting the Digital Trade of Synthetic Narcotics and Illicit Small Arms.</span>
+                        Addressing the rise of anonymous digital bazaars that facilitate transnational crime and formulating international strategies to track and dismantle illegal cyber-syndicates.
+                        <hr>
+                        <span class="topic-label">Topic 2: The Rise of Ransomware as a Tool for Transnational Extortion: Protecting Global Civic Infrastructure.</span>
+                        Examining international legal frameworks to prosecute cyber-ransom groups and developing shared protocols to protect public hospitals and utilities from digital hostage-taking.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcc">
+                        Historical Crisis Committee (HCC)
+                    </button>
+                </h2>
+                <div id="hcc" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: The Chernobyl Disaster (1986): The Cost of Lies.</span>
+                        This committee serves as the ultimate "Epistemic Security" historical crisis. Delegates must navigate the containment of both radiation and information, addressing the Soviet Union's initial attempt to hide the truth from the world and its own people.
+                        <hr>
+                        <span class="topic-label">Topic 2: The 1962 Cuban Missile Crisis: Information Brinkmanship and the Management of Signal Intelligence.</span>
+                        A fast-paced crisis environment where delegates must manage conflicting reports and hidden agendas to prevent global nuclear war in a world of imperfect information.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stips">
+                        Special Tribunal on Intellectual & Political Subversion (STIPS)
+                    </button>
+                </h2>
+                <div id="stips" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: The Impiety Trial of Aspasia of Miletus: Character Assassination as a Political Weapon.</span>
+                        Navigating the thin line between personal freedom and state-mandated morality, delegates will litigate the charges against one of Athens' greatest minds in a trial exploring gendered disinformation.
+                        <hr>
+                        <span class="topic-label">Topic 2: The Defense of Hypatia of Alexandria: Scientific Truth vs. Religious Populism.</span>
+                        Simulating the judicial defense of Hypatia against charges of sorcery and political subversion, addressing the historical cost of suppressing intellectual truth in the name of political stability.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nato">
+                        NATO
+                    </button>
+                </h2>
+                <div id="nato" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic 1: Cognitive Warfare: Countering Hybrid Threats and Disinformation campaigns Targeting Alliance Unity.</span>
+                        Strategies to defend against adversaries using social media bots and information warfare to erode public trust in democratic institutions.
+                        <hr>
+                        <span class="topic-label">Topic 2: Securing Undersea Communications infrastructure and Protecting Transatlantic Data Cables.</span>
+                        Defending the physical backbone of the global internet from state-sponsored sabotage and ensuring the continuity of intelligence sharing during cyber-crises.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#unga">
+                        UN General Assembly (UNGA)
+                    </button>
+                </h2>
+                <div id="unga" class="accordion-collapse collapse" data-bs-parent="#committeeAccordion">
+                    <div class="accordion-body">
+                        <span class="topic-label">Topic: The Universal Right to Truth: Establishing International Norms Against State-Sponsored Disinformation.</span>
+                        Addressing the "Post-Truth" era, the Assembly will debate whether access to factual information is a human right and determine how the UN can sanction states that weaponize misinformation against their own citizens or other nations.
                     </div>
                 </div>
             </div>
@@ -451,44 +524,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Set the date we're counting down to: February 4, 2027
-        const deadline = new Date('February 4, 2027 08:00:00').getTime();
-
+        const deadline = new Date('February 11, 2027 08:00:00').getTime();
         const timerInterval = setInterval(updateCountdown, 1000);
 
         function updateCountdown() {
             const now = Date.now();
             const t = deadline - now;
-            
             if (t <= 0) {
                 clearInterval(timerInterval);
-                const countdownSection = document.getElementById('countdown-section');
-                if (countdownSection) {
-                    countdownSection.innerHTML = "<div class='container py-5'><p class='fs-4 text-success'>The Conference has started!</p></div>";
-                }
+                document.getElementById('countdown-section').innerHTML = "<div class='container py-5'><p class='fs-4 text-success'>The Conference has started!</p></div>";
                 return;
             }
-
             const days = Math.floor(t / (1000 * 60 * 60 * 24));
             const hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((t % (1000 * 60)) / 1000);
-
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-
-            if (daysEl) daysEl.textContent = days;
-            if (hoursEl) hoursEl.textContent = hours;
-            if (minutesEl) minutesEl.textContent = minutes;
-            if (secondsEl) secondsEl.textContent = seconds;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
         }
-
         updateCountdown(); 
     </script>
 </body>
-
 </html>
-
-
