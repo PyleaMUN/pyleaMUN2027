@@ -182,6 +182,12 @@
             margin-bottom: 0.25rem;
         }
 
+        .intro-icon {
+            color: #b8860b;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
         footer { background: #001f3f; color: #fcfbf9; padding: 2rem 0; margin-top: 4rem; }
         
         @media (max-width: 768px) {
@@ -233,11 +239,17 @@
             </div>
 
             <div style="font-size: 1.5rem; font-weight: 900; color: #28a745; margin-top: 0.5rem;">
-    PyleaMUN remains true to its "No Fees" policy
-</div>
+                PyleaMUN remains true to its "No Fees" policy
+            </div>
 
             <div style="font-size: 1.1rem; font-weight: 400; color: #000; margin-top: 1rem; font-style: italic;">
                 <strong>Page will be updated regularly and will be fully populated by the end of November 2026</strong>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button" class="btn hero-btn btn-gold" data-bs-toggle="modal" data-bs-target="#termsModal">
+                    <i class="fas fa-file-contract me-2"></i> Terms and Conditions
+                </button>
             </div>
         </div>
     </header>
@@ -250,6 +262,12 @@
                 <div><span id="hours">--</span><div class="small">Hours</div></div>
                 <div><span id="minutes">--</span><div class="small">Minutes</div></div>
                 <div><span id="seconds">--</span><div class="small">Seconds</div></div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button" class="btn hero-btn btn-teal" data-bs-toggle="modal" data-bs-target="#introModal">
+                    <i class="fas fa-info-circle me-2"></i> Introductory note
+                </button>
             </div>
         </div>
     </section>
@@ -515,6 +533,54 @@
 
         </div>
     </section>
+
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: justify; padding: 2rem;">
+                    <p><strong>Institutional Status:</strong> PyleaMUN is a non-profit educational initiative hosted and administered entirely by a public state school. It does not operate as a private or commercial institution.</p>
+                    <p><strong>Zero-Fee Policy:</strong> In accordance with our founding principles, PyleaMUN is, and shall remain, a strictly free-of-charge conference. No registration or participation fees are levied against delegates, student officers, or participating schools.</p>
+                    <p><strong>Logistical Responsibilities:</strong> Participation is contingent upon the understanding that all delegates and delegations are solely responsible for their own logistical arrangements, including transportation, accommodation, and daily meals. PyleaMUN does not provide travel subsidies or catering services unless explicitly stated.</p>
+                    <p><strong>Intellectual Property:</strong> The curation, production, and distribution of all conference-related materials remain at the sole discretion of the PyleaMUN Organizing Committee.</p>
+                    <p><strong>Code of Conduct & Discipline:</strong> All participants are expected to embody the highest standards of diplomatic conduct. The organizers reserve the right to revoke participation for behavior that undermines the educational environment.</p>
+                    <p><strong>Liability Waiver:</strong> PyleaMUN and its hosting institution shall not be held liable for any personal injury, loss of property, or travel disruptions incurred by participants.</p>
+                    <p><strong>Media Consent:</strong> By participating, delegates grant the organizers permission to use photographs and video recordings for educational and promotional purposes.</p>
+                    <p><strong>Data Privacy (GDPR):</strong> Information collected during registration will be used exclusively for conference administration and will not be shared with third parties.</p>
+                    <p><strong>Certificate Eligibility:</strong> Certificates of participation will only be awarded to delegates who attend all scheduled committee sessions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="introModal" tabindex="-1" aria-labelledby="introModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="introModalLabel">Introductory note</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: justify; padding: 2rem;">
+                    <h4 class="text-center mb-4" style="color: #008080; font-weight: 900;">The Universal Right to Truth</h4>
+                    <p>Thessaloniki — ancient crossroads of ideas and empires — beckons the next wave of young diplomats to ignite bold solutions, fuse tradition with technology, and chart a resilient future.</p>
+                    
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-star intro-icon"></i> <strong>Why Here?</strong> From the White Tower to the waterfront, history's lessons fuel your vision.</li>
+                        <li class="mb-3"><i class="fas fa-bolt intro-icon"></i> <strong>Why Now?</strong> In an era of digital shadows, you are the architects of transparency and the guardians of fact.</li>
+                        <li class="mb-3"><i class="fas fa-crosshairs intro-icon"></i> <strong>Your Mission:</strong> Unite, debate, draft — and defend the integrity of the global narrative.</li>
+                    </ul>
+
+                    <p>PyleaMUN is honoured to return for its second conference, building upon the vibrant energy and meaningful traditions established during our inaugural session. This gathering continues our commitment to providing a premier platform for students and young thinkers eager to explore diplomacy and the power of collaboration.</p>
+                    <p>Throughout this second edition, participants will engage in rigorous discussions centered on our 2027 theme, "The Universal Right to Truth." From the Security Council to the Special Tribunal, delegates will confront the weaponization of disinformation, the ethics of AI, and the protection of human rights in the digital frontier.</p>
+                    <p>At its core, PyleaMUN remains a steadfast advocate for the values of cooperation, respect, and open dialogue. Delegates will have the unique opportunity to meet peers from diverse backgrounds, bridge divergent perspectives, and gain a profound understanding of global affairs.</p>
+                    <p>Guided by a distinguished panel of chairs and expert advisors, participants will be challenged to craft innovative resolutions that address both historical lessons and future threats. As we look toward 2027, we aim to solidify PyleaMUN as a welcoming space for high-level debate and lasting collaboration. Together, we continue a journey of shared purpose: to empower the leaders of tomorrow to confront global challenges with courage, creativity, and an unwavering commitment to the truth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="text-center">
         <div class="container">
