@@ -13,7 +13,7 @@
     <style>
         body { font-family: 'Roboto', sans-serif; margin: 0; background-color: #fcfbf9; color: #001f3f; }
         .navbar-custom { background-color: #fcfbf9; }
-        .hero { background-image: url('logo.png'); background-repeat: no-repeat; background-size: contain; background-position: center center; display: flex; align-items: center; justify-content: center; position: relative; text-align: center; min-height: 85vh; margin-top: 56px; }
+        .hero { background-image: url('logo.png'); background-repeat: no-repeat; background-size: contain; background-position: center center; display: flex; align-items: center; justify-content: center; position: relative; text-align: center; min-height: 70vh; margin-top: 56px; }
         .hero::before { content: ""; position: absolute; inset: 0; background-color: rgba(252, 251, 249, 0.85); }
         .hero-content { position: relative; z-index: 1; max-width: 90%; padding: 2rem; }
         .brand-title { color: #008080; font-weight: 900; letter-spacing: 2px; font-size: 3rem; margin-bottom: 1rem; }
@@ -29,7 +29,7 @@
         .btn-study-guide { background-color: #001f3f; color: #fff; border: 1px solid #001f3f; padding: 0.5rem 1.2rem; border-radius: 5px; font-size: 0.9rem; font-weight: 700; transition: 0.3s; margin-top: 1rem; display: inline-block; text-decoration: none; }
         .btn-study-guide:hover { background-color: #b8860b; border-color: #b8860b; color: white; }
         @keyframes flash-effect { 0% { opacity: 1; color: #d63384; transform: scale(1); } 50% { opacity: 0.6; color: #dc3545; transform: scale(1.02); } 100% { opacity: 1; color: #d63384; transform: scale(1); } }
-        .flashing-notice { font-size: 1.5rem; font-weight: 900; text-transform: uppercase; animation: flash-effect 1.2s infinite ease-in-out; margin-top: 2rem; }
+        .flashing-notice { font-size: 1.5rem; font-weight: 900; text-transform: uppercase; animation: flash-effect 1.2s infinite ease-in-out; margin-top: 0.75rem; }
         #countdown-section { padding-top: 2rem; }
         #countdown div { min-width: 90px; padding: 0.5em; text-align: center; }
         #countdown span { display: block; font-size: 2.5rem; color: #008080; font-weight: bold; }
@@ -44,7 +44,7 @@
         .topic-bg { font-style: italic; color: #555; border-left: 3px solid #b8860b; padding-left: 1rem; margin-bottom: 1.5rem; }
         .intro-icon { color: #b8860b; font-size: 1.2rem; margin-right: 10px; }
         footer { background: #001f3f; color: #fcfbf9; padding: 2rem 0; margin-top: 4rem; }
-        @media (max-width: 768px) { .hero { min-height: 60vh; } .main-theme-title { font-size: 2.5rem; } .theme-subtitle { font-size: 1.2rem; } .brand-title { font-size: 2rem; } .hero-btn { width: 100%; display: block; margin: 0.5rem 0; } }
+        @media (max-width: 768px) { .hero { min-height: 55vh; } .main-theme-title { font-size: 2.5rem; } .theme-subtitle { font-size: 1.2rem; } .brand-title { font-size: 2rem; } .hero-btn { width: 100%; display: block; margin: 0.5rem 0; } }
     </style>
 </head>
 <body>
@@ -95,11 +95,6 @@
     </a>
 </div>
 
-            <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
-                <a href="https://forms.gle/MDZL5CmGniXBvH1R9" target="_blank" class="btn hero-btn btn-teal"><i class="fas fa-school me-2"></i> School Registration 2027</a>
-                <a href="https://forms.gle/ZvzBcmChgTp762Eu5" target="_blank" class="btn hero-btn btn-teal"><i class="fas fa-user-tie me-2"></i> Student Officer Application 2027</a>
-                <a href="https://pyleamun.github.io/countries2027/" target="_blank" class="btn hero-btn btn-gold"><i class="fas fa-globe me-2"></i> Country Availability</a>
-            </div>
             
             <div class="flashing-notice">More information coming soon</div>
             <div style="font-size: 1.5rem; font-weight: 900; color: #28a745; margin-top: 0.5rem;">PyleaMUN remains true to its "No Fees" policy</div>
